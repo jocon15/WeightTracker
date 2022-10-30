@@ -520,10 +520,10 @@ class Ui_MainWindow(object):
 
     @staticmethod
     def chart_clicked():
-        # convert all the data in the db to a plotly-friendly format
+        # retrieve all data from database
         data = db_api.get_all_weights_dates()
 
-        # convert the dates to dates
+        # convert the data from list of tuples to list of lists
         list_data = list()
         for index in range(len(data)):
             element = list()
@@ -533,7 +533,7 @@ class Ui_MainWindow(object):
             element.append(data[index][1])
             list_data.append(element)
 
-        # sort the list
+        # sort the list by the
         sorted_list_data = sorted(list_data, key=lambda x: x[0])
 
         # convert the dates to date
